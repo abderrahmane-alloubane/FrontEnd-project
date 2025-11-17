@@ -2,7 +2,7 @@
   <div>
     <h2>Produits populaires</h2>
     <div class="row g-3">
-      <div v-for="p in products" :key="p.id" class="col-6 col-md-4 col-lg-3">
+      <div v-for="p in products" :key="p.id" class="col-12">
         <ProductCard :product="p" />
       </div>
     </div>

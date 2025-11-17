@@ -9,3 +9,14 @@ export function getAllProducts() {
 export function getProduct(id) {
   return axios.get(`${API_URL}/${id}`)
 }
+
+export async function GetCategories(){
+  let resp = await axios.get(API_URL)
+  let data = resp.data
+  let CatList = new Set()
+
+  data.forEach(element => {
+    CatList.add(element['category'])
+  });
+  return CatList
+}
