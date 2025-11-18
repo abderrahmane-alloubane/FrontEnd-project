@@ -1,8 +1,19 @@
 export function setCartProduct(product, qte) {
   // Sauvegarder un produit dans le localStorage
   const products = getCartProducts()
-    product.qte = qte
-  products.push(product)
+  product.qte = qte
+
+  // Check if the product already exists in the cart
+  const existingProductIndex = products.findIndex(p => p.id === product.id)
+
+  if (existingProductIndex === -1) {
+    // If it doesn't exist, add it to the cart
+    products.push(product)
+  } else {
+    // If it exists, update the quantity
+    products[existingProductIndex].qte = qte
+  }
+
   localStorage.setItem('cart', JSON.stringify(products))
 }
 
@@ -22,3 +33,7 @@ export function removeProduct(product) {
   localStorage.setItem('cart', JSON.stringify(products))
 }
 
+export function savetotalprice(total){
+  localStorage.removeItem("totalprice")
+  localStorage.setItem("totalprice",total);
+}

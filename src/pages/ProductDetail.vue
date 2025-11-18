@@ -18,7 +18,7 @@
           <button class="btn btn-outline-secondary" @click="increaseQty">+</button>
         </div>
 
-        <button class="btn btn-success">Ajouter au panier</button>
+        <button class="btn btn-success" @click="achterproduct" >Ajouter au panier</button>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { getProduct } from '@/services/api';
-
+import { setCartProduct } from '@/services/cart'
 const route = useRoute();
 const product = ref({
   title: '',
@@ -51,6 +51,10 @@ function increaseQty() {
 }
 function decreaseQty() {
   if (quantity.value > 1) quantity.value--;
+}
+
+function achterproduct(){
+  setCartProduct(product.value,quantity.value)
 }
 
 </script>
