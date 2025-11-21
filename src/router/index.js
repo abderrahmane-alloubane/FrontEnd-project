@@ -5,7 +5,7 @@ import ProductDetail from '../pages/ProductDetail.vue'
 import Checkout from '../pages/CheckoutScreen.vue'
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/FrontEnd-project/', component: Home },
   { path: '/shop', component: Shop },
   { path: '/product/:id', component: ProductDetail },
   { path: '/checkout', component: Checkout },

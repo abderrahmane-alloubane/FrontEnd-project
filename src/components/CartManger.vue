@@ -14,7 +14,6 @@
     </div>
 
     <div class="d-flex">
-      <button class="btn btn-outline-secondary me-2" type="button" @click="updateTotalPrice">Mettre à jour</button>
       <button class="btn btn-success" type="button">Checkout</button>
     </div>
   </div>
