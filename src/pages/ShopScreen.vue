@@ -28,7 +28,7 @@ import { getAllProducts, GetCategories } from '@/services/api'
 import ProductCard from '@/components/ProductCard.vue'
 
 const products = ref([])
-const categories = ref([]) 
+const categories = ref([])
 const selectedCategory = ref('')
 
 onMounted(async () => {
