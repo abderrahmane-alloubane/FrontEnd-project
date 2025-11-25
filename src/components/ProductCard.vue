@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between align-items-center h-100">
           <div class="text-truncate" style="max-width: 500px">
             <h5 class="card-title mb-1">{{ product.title }}</h5>
-            <p class="card-text fw-bold text-success mb-0">{{ product.price }} MAD</p>
+            <p class="card-text fw-bold text-success mb-0">{{ product.price }} €</p>
           </div>
           <RouterLink :to="'/product/' + product.id">
             <button class="btn btn-primary btn-sm">Voir</button>

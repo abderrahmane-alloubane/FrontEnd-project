@@ -10,11 +10,11 @@
 
         <p class="bold">{{ product.description }}</p>
 
-        <h4 class="text-success">{{ product.price }}MAD</h4>
+        <h4 class="text-success">{{ product.price }} €</h4>
 
         <div class="d-flex align-items-center my-3">
           <button class="btn btn-outline-secondary" @click="decreaseQty">-</button>
-          <input type="number" class="form-control text-center mx-2" v-model="quantity" min="1" style="width: 70px;" />
+          <input disabled="disabled" type="number" class="form-control text-center mx-2" v-model="quantity" min="1" style="width: 70px;" />
           <button class="btn btn-outline-secondary" @click="increaseQty">+</button>
         </div>
 
@@ -72,5 +72,15 @@ function achterproduct() {
 <style>
 .bold {
   font-weight: bold;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 </style>

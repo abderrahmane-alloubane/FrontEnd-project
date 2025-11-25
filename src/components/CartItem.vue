@@ -13,7 +13,7 @@
         <div class="justify-content-between align-items-center h-100">
           <div class="text-truncate" style="max-width: 500px">
             <h5 class="card-title mb-1">{{ product.title }}</h5>
-            <p class="card-text fw-bold text-success mb-0">{{ product.price }} MAD</p>
+            <p class="card-text fw-bold text-success mb-0">{{ product.price }} €</p>
           </div>
           
         
@@ -21,7 +21,7 @@
           <div class="d-flex justify-content-end w-100">
             
             <button class="btn btn-outline-secondary" @click="decreaseQty">-</button>
-            <input type="number" class="form-control text-center mx-2" v-model="quantity" min="1" style="width: 70px;" />
+            <input disabled="disabled" type="number" class="form-control text-center mx-2" v-model="quantity" min="1" style="width: 70px;" />
             <button class="btn btn-outline-secondary" @click="increaseQty">+</button>
 
             <button class="btn btn-danger btn-sm mx-2" @click="removeitem">
@@ -76,3 +76,15 @@ function decreaseQty() {
   }
 }
 </script>
+<style>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+</style>
