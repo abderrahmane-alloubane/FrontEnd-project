@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+
     <div class="nav align-items-center justify-content-between">
       <h2>Tous les produits</h2>
       <div class="d-flex">
@@ -10,9 +10,9 @@
             {{ c }}
           </option>
         </select>
-        <button @click="Rechercher" class="btn btn-outline-secondary">Rechercher</button> 
+        <button @click="Rechercher" class="btn btn-outline-secondary">Rechercher</button>
       </div>
-      
+
     </div>
     <div class="row g-3">
       <div v-for="p in products" :key="p.id" class="col-12">
@@ -37,12 +37,11 @@ onMounted(async () => {
   categories.value = await GetCategories()
 })
 
-async function Rechercher(){
+async function Rechercher() {
   try {
-    let data  = await getAllProducts()
+    let data = await getAllProducts()
     let resp = data.data
 
-    // If no category selected, show all products
     if (!selectedCategory.value) {
       products.value = resp
       return
@@ -50,7 +49,10 @@ async function Rechercher(){
     console.log("Selected category:", selectedCategory.value);
     console.log("All product categories:", resp.map(p => p.category));
 
-    products.value = resp.filter(product => product.category == selectedCategory.value)
+    products.value = resp.filter(product => {
+        if (!selectedCategory.value) return true
+        return product.category === selectedCategory.value
+      })
   } catch (error) {
     console.error("Failed to fetch or filter products:", error)
   }
@@ -58,4 +60,3 @@ async function Rechercher(){
 
 
 </script>
-
