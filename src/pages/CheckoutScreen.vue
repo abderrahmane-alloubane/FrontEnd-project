@@ -1,8 +1,8 @@
-
 <template>
-    <CartManger/>
+    <CartManager />
 
 </template>
 <script setup>
-import CartManger from '@/components/CartManger.vue';
+import CartManager from '@/components/CartManager.vue';
+
 </script>

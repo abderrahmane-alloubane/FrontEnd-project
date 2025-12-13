@@ -25,7 +25,3 @@ onMounted(async () => {
   products.value = tempProducts
 })
 </script>
-
-<style scoped>
-/* Layout now uses Bootstrap row/col utilities; keep this file minimal. */
-</style>
