@@ -37,3 +37,8 @@ export function savetotalprice(total){
   localStorage.removeItem("totalprice")
   localStorage.setItem("totalprice",total);
 }
+
+export function clearCart(){
+  localStorage.removeItem('cart');
+   localStorage.setItem('cartTotal',0);
+}
