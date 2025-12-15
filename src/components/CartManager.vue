@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 class="m-3 text-center">Votre panier</h2>
-    <div class="row gap-2">
+    <div class="flex flex-col gap-4">
       <CartItem v-for="p in products" :key="p.id" :product="p" class="col-6 col-md-4 col-lg-3"
         @quantity-changed="handleQuantityChange" @product-removed="handleProductRemoved" />
     </div>

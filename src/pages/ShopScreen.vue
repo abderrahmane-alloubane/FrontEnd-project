@@ -2,24 +2,27 @@
   <div class="space-y-8">
     <!-- Page Title -->
     <div class="space-y-4">
-      <h1 class="section-title text-5xl">🛍️ All Products</h1>
+      <h1
+        class="text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+        🛍️ All Products</h1>
       <p class="text-slate-600 text-lg">Browse through our complete collection of premium items</p>
     </div>
 
     <!-- Filter Section -->
-    <div class="bg-white rounded-xl shadow-md p-6 sticky top-20 z-40 backdrop-blur-sm">
-      <div class="flex flex-col sm:flex-row gap-4 items-end">
-        <div class="flex-1">
-          <label class="block text-sm font-bold text-slate-700 mb-2">Filter by Category</label>
+    <div class="bg-white rounded-xl shadow-md p-6 top-20 z-40 backdrop-blur-sm">
+      <label class="block text-sm font-bold text-slate-700 mb-2">Filter by Category</label>
+      <div class="flex flex-col  sm:flex-row gap-4 items-center">
+        <div class="flex-1 items-center">
           <select v-model="selectedCategory"
-            class="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-indigo-600 focus:outline-none transition-colors bg-slate-50 font-medium text-slate-900">
+            class="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-primary focus:outline-none transition-colors bg-slate-50 font-medium text-slate-900">
             <option value="">All Products</option>
             <option v-for="c in categories" :key="c" :value="c">
               {{ c }}
             </option>
           </select>
         </div>
-        <button @click="Rechercher" class="btn-primary-custom w-full sm:w-auto">
+        <button @click="Rechercher"
+          class="bg-orange-600 flex items-center  hover:bg-white hover:border hover:text-orange-600 text-white to:scale-105 font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 w-full sm:w-auto">
           <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd"
               d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
@@ -29,7 +32,7 @@
         </button>
       </div>
       <div v-if="selectedCategory" class="mt-4 flex items-center gap-2">
-        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">
+        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
           Category: {{ selectedCategory }}
         </span>
         <button @click="selectedCategory = ''; Rechercher()"
@@ -57,7 +60,8 @@
       </svg>
       <h3 class="text-2xl font-bold text-slate-900 mb-2">No products found</h3>
       <p class="text-slate-600 mb-6">Try adjusting your filters or browse all products</p>
-      <button @click="selectedCategory = ''; Rechercher()" class="btn-primary-custom">
+      <button @click="selectedCategory = ''; Rechercher()"
+        class="bg-gradient-to-r from-primary to-orange-600 hover:from-orange-600 hover:to-primary text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95">
         View All Products
       </button>
     </div>
@@ -65,7 +69,7 @@
     <!-- Product Count -->
     <div class="flex justify-between items-center py-6 border-t border-slate-200">
       <p class="text-slate-600">
-        Showing <span class="font-bold text-indigo-600">{{ products.length }}</span> products
+        Showing <span class="font-bold text-primary">{{ products.length }}</span> products
       </p>
     </div>
   </div>

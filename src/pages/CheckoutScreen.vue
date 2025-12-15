@@ -1,21 +1,20 @@
 <template>
-    <div class="container">
-      <CartManager @total-changed="handleTotalChanged" />
-      
-      <div
-        class="d-flex flex-column flex-md-row align-items-center justify-content-between w-100 m-2 p-3 bg-light rounded shadow-sm">
-        <div class="d-flex align-items-center mb-2 mb-md-0">
-          <strong class="me-2">Total :</strong>
-          <span class="fs-5 fw-bold badge text-black" aria-live="polite">{{ totalprice.toFixed(2) }} €</span>
-        </div>
+  <div class="mt-20">
+    <CartManager @total-changed="handleTotalChanged" />
 
-        <div class="d-flex">
-          <button class="btn btn-success" type="button" @click="showCheckout = true">Checkout</button>
-        </div>
+    <div class="flex justify-between p-4">
+      <div>
+        <strong class="me-2">Total :</strong>
+        <span class="fs-5 fw-bold badge text-black" aria-live="polite">{{ totalprice.toFixed(2) }} €</span>
       </div>
 
-      <CheckoutModal :show="showCheckout" @close="showCheckout = false" />
+      <button
+        class="bg-green-500 px-4 py-2 border border-green-500 rounded-lg text-white hover:text-green-500 hover:bg-white hover:border hover:border-dashed hover:border-green-500 transition duration-300"
+        type="button" @click="showCheckout = true">Checkout</button>
     </div>
+
+    <CheckoutModal :show="showCheckout" @close="showCheckout = false" />
+  </div>
 </template>
 
 <script setup>

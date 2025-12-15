@@ -1,41 +1,47 @@
 <template>
-    <div v-if="show" class="modal-backdrop">
-        <div class="modal-card">
-            <h4>Checkout</h4>
+    <div v-if="show" class="modal-backdrop ">
+        <div class="modal-card bg-white p-8 rounded-lg">
+            <h4 class="text-5xl text-center">Checkout</h4>
 
-            <form @submit.prevent="submitPayment">
-                <div class="mb-2">
-                    <label class="form-label">Card Number</label>
-                    <input v-model="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" />
+            <form @submit.prevent="submitPayment" class="flex flex-col gap-4">
+                <label class="form-label flex flex-col gap-2">Name on Card
+                    <input v-model="cardName"
+                        class="form-control border border-gray-300 rounded-lg focus:outline-none p-2" minlength="3" />
+                </label>
+                <label class="form-label flex flex-col gap-2 ">Card Number
+                    <input v-model="cardNumber"
+                        class="form-control border border-gray-300 rounded-lg focus:outline-none p-2"
+                        placeholder="1234 5678 9012 3456" maxlength="16" />
+                </label>
+                <div class="flex gap-2">
+
+                    <label class="form-label w-full flex flex-col gap-2">Expiry
+                        <input v-model="expiry"
+                            class="form-control border border-gray-300 rounded-lg focus:outline-none p-2"
+                            placeholder="MM/YY" maxlength="5" />
+                    </label>
+
+                    <label class="form-label w-full flex flex-col gap-2">CVV
+                        <input v-model="cvv"
+                            class="form-control border border-gray-300 rounded-lg focus:outline-none p-2"
+                            placeholder="123" maxlength="3" />
+                    </label>
                 </div>
 
-                <div class="mb-2">
-                    <label class="form-label">Name on Card</label>
-                    <input v-model="cardName" class="form-control" />
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label">Expiry</label>
-                        <input v-model="expiry" class="form-control" placeholder="MM/YY" />
-                    </div>
-                    <div class="col">
-                        <label class="form-label">CVV</label>
-                        <input v-model="cvv" class="form-control" placeholder="123" />
-                    </div>
-                </div>
-
-                <p v-if="error" class="text-danger mt-2">{{ error }}</p>
-                <p v-if="notification" class="text-success mt-2">
+                <p v-if="error" class="text-red-500 mt-2">{{ error }}</p>
+                <p v-if="notification" class="text-green-500 mt-2">
                     {{ notification }}
                 </p>
 
-                <div class="d-flex justify-content-end gap-2 mt-3">
-                    <button type="button" class="btn btn-secondary" @click="close">
+                <div class="flex justify-end gap-4">
+                    <button type="button"
+                        class="bg-red-500 text-white border border-red-500 rounded-lg hover:bg-white hover:text-red-500 px-4 py-2"
+                        @click="close">
                         Cancel
                     </button>
-                    <button type="submit" class="btn btn-primary">
-                        Pay
+                    <button type="submit"
+                        class="bg-green-500 text-white border border-green-500 rounded-lg hover:bg-white hover:text-green-500 px-4 py-2">
+                        Confirm Payment
                     </button>
                 </div>
             </form>
@@ -85,7 +91,7 @@ function submitPayment() {
     notification.value = ''
 
     if (!isValidCard(cardNumber.value)) {
-        error.value = 'Invalid card number'
+        error.value = '*Invalid card number'
         return
     }
 
@@ -135,13 +141,5 @@ function close() {
     align-items: center;
     justify-content: center;
     z-index: 999;
-}
-
-.modal-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
 }
 </style>

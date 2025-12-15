@@ -1,19 +1,19 @@
 <template>
-  <div class="card-product flex flex-col justify-between h-156 z-50 bg-white/30 p-6 rounded-2xl">
+  <div class="card-product flex flex-col justify-between h-132 z-50 bg-white/50 p-6 rounded-2xl shadow-sm">
     <!-- Product Image Container -->
     <div class="card-product-image flex items-center justify-center">
-      <img :src="product.image" :alt="product.title" class="h-56"/>
+      <img :src="product.image" :alt="product.title" class="h-42" />
 
       <!-- Badge -->
 
       <!-- Quick View Badge -->
 
-      </div>
+    </div>
 
     <!-- Product Info -->
     <div class="flex flex-col gap-4">
       <!-- Title -->
-      <h3 class="font-bold text-lg text-slate-900 line-clamp-2 group-hover:text-indigo-600 transition-colors">
+      <h3 class="font-bold text-lg text-slate-900 line-clamp-2 group-hover:text-primary transition-colors">
         {{ product.title }}
       </h3>
 
@@ -32,7 +32,7 @@
 
       <!-- Price Section -->
       <div class="flex items-baseline space-x-2">
-        <span class="text-2xl font-bold text-indigo-600">{{ product.price }} €</span>
+        <span class="text-2xl font-bold text-primary">{{ product.price }} €</span>
         <span class="text-sm text-slate-400 line-through">{{ (product.price * 1.2).toFixed(2) }} €</span>
         <span class="text-xs font-bold text-red-500">-20%</span>
       </div>
@@ -40,7 +40,7 @@
       <!-- Action Buttons -->
       <div class="flex gap-3">
         <button
-          class="flex-1 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
+          class="flex-1 bg-orange-600 hover:text-orange-600 hover:bg-white text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path
               d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042L6.582 17h12.307a1 1 0 100-2H7.628L5.582 5H3a1 1 0 000 2h2.126l.305-1.222A.997.997 0 0012 2H4a1 1 0 000 2h8z" />
@@ -48,7 +48,7 @@
           <span>Add</span>
         </button>
         <RouterLink :to="'/product/' + product.id"
-          class="flex-1 border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 font-semibold py-3 px-4 rounded-lg transition-all duration-300 text-center">
+          class="flex-1 border border-primary text-primary hover:bg-orange-600 hover:scale-105 hover:text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 text-center">
           Details
         </RouterLink>
       </div>
@@ -62,8 +62,8 @@
         </svg>
         <span>In Stock - Free Shipping</span>
       </div>
-      </div>
     </div>
+  </div>
 </template>
 
 <script setup>

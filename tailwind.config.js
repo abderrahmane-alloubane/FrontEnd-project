@@ -4,9 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#6366f1",
-        secondary: "#ec4899",
-        accent: "#f59e0b",
+        primary: "#f3682b",
+        secondary: "#8d8bb7",
+        accent: "#6c8494",
+        dark: "#3c3c3c",
+        warm: "#9c9186",
       },
       animation: {
         float: "float 3s ease-in-out infinite",

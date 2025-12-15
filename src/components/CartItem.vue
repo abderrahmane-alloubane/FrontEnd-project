@@ -25,13 +25,13 @@
       <div class="flex items-center gap-4">
         <div class="flex items-center border-2 border-slate-200 rounded-lg bg-slate-50">
           <button @click="decreaseQty"
-            class="w-10 h-10 flex items-center justify-center text-indigo-600 hover:bg-indigo-50 transition-colors font-bold text-lg">
+            class="w-10 h-10 flex items-center justify-center hover:bg-orange-600 hover:text-white border-r-2 border-black/10 transition-colors text-orange-600 font-bold text-lg rounded-l-md">
             −
           </button>
           <input disabled="disabled" type="number" v-model.number="quantity"
             class="w-12 text-center border-0 bg-transparent font-bold text-slate-900 focus:outline-none" />
           <button @click="increaseQty"
-            class="w-10 h-10 flex items-center justify-center text-indigo-600 hover:bg-indigo-50 transition-colors font-bold text-lg">
+            class="w-10 h-10 flex items-center justify-center hover:bg-orange-600 hover:text-white border-l-2 border-black/10 transition-colors text-orange-600 font-bold text-lg rounded-r-md">
             +
           </button>
         </div>
