@@ -1,20 +1,27 @@
 <template>
-  <div class="mt-20">
-    <CartManager @total-changed="handleTotalChanged" />
+<div class="bg-gradient-to-br from-indigo-50 to-purple-50 py-12 mt-24 p-4 rounded-2xl shadow-lg">
+  <CartManager @total-changed="handleTotalChanged" />
 
-    <div class="flex justify-between p-4">
-      <div>
-        <strong class="me-2">Total :</strong>
-        <span class="fs-5 fw-bold badge text-black" aria-live="polite">{{ totalprice.toFixed(2) }} €</span>
+  <div class="max-w-5xl mx-auto px-4 mt-8">
+    <div class="bg-white rounded-2xl shadow-md p-6 border border-indigo-100">
+      <div class="mb-6 text-center">
+        <p class="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Total à payer : {{ totalprice.toFixed(2) }} €
+        </p>
       </div>
 
-      <button
-        class="bg-green-500 px-4 py-2 border border-green-500 rounded-lg text-white hover:text-green-500 hover:bg-white hover:border hover:border-dashed hover:border-green-500 transition duration-300"
-        type="button" @click="showCheckout = true">Checkout</button>
+            <!-- Confirm Button -->
+        <button v-if="totalprice > 0" 
+          @click="showCheckout = true"
+          class="w-full px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-200">
+          Confirmer le paiement
+        </button>
     </div>
-
-    <CheckoutModal :show="showCheckout" @close="showCheckout = false" />
   </div>
+
+  <CheckoutModal :show="showCheckout" @close="showCheckout = false" />
+</div>
+
 </template>
 
 <script setup>

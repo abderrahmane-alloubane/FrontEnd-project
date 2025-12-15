@@ -1,11 +1,25 @@
 <template>
-  <div class="container">
-    <h2 class="m-3 text-center">Votre panier</h2>
-    <div class="flex flex-col gap-4">
-      <CartItem v-for="p in products" :key="p.id" :product="p" class="col-6 col-md-4 col-lg-3"
-        @quantity-changed="handleQuantityChange" @product-removed="handleProductRemoved" />
-    </div>
+<div class="container max-w-5xl mx-auto">
+  <div class="mb-8 text-center">
+    <h2 class="text-3xl font-bold text-slate-800">
+      Votre panier
+    </h2>
+    <p class="text-sm text-slate-500 mt-1">
+      Vérifiez vos articles avant le paiement
+    </p>
   </div>
+
+  <div class="flex flex-col gap-4">
+    <CartItem
+      v-for="p in products"
+      :key="p.id"
+      :product="p"
+      @quantity-changed="handleQuantityChange"
+      @product-removed="handleProductRemoved"
+    />
+  </div>
+</div>
+
 </template>
 
 <script setup>
