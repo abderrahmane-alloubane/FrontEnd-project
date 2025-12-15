@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="d-flex justify-content-between align-items-center p-3 border border-dashed">
+    <header class="sticky-top d-flex justify-content-between align-items-center p-3 border border-dashed bg-white">
       <RouterLink to="/" class="logo fw-bold fs-4 text-decoration-none text-secondary">
         <img src="/favicon.ico" alt="Logo" />
       </RouterLink>

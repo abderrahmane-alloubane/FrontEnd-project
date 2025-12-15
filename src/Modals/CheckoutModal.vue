@@ -26,8 +26,8 @@
                 </div>
 
                 <p v-if="error" class="text-danger mt-2">{{ error }}</p>
-                <p v-if="success" class="text-success mt-2">
-                    Payment accepted ✅
+                <p v-if="notification" class="text-success mt-2">
+                    {{ notification }}
                 </p>
 
                 <div class="d-flex justify-content-end gap-2 mt-3">
@@ -45,23 +45,23 @@
 
 <script setup>
 import { ref } from 'vue'
+import { clearCart } from '@/services/cart.js'
 
 defineProps({
     show: Boolean
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'cart-cleared'])
 
 const cardNumber = ref('')
 const cardName = ref('')
 const expiry = ref('')
 const cvv = ref('')
 const error = ref('')
-const success = ref(false)
+const notification = ref('')
 
 function isValidCard(cardNumber) {
     const clean = cardNumber.replace(/\D/g, '')
-
     if (clean.length < 13 || clean.length > 19) return false
 
     let sum = 0
@@ -69,12 +69,10 @@ function isValidCard(cardNumber) {
 
     for (let i = clean.length - 1; i >= 0; i--) {
         let digit = parseInt(clean[i], 10)
-
         if (shouldDouble) {
             digit *= 2
             if (digit > 9) digit -= 9
         }
-
         sum += digit
         shouldDouble = !shouldDouble
     }
@@ -84,7 +82,7 @@ function isValidCard(cardNumber) {
 
 function submitPayment() {
     error.value = ''
-    success.value = false
+    notification.value = ''
 
     if (!isValidCard(cardNumber.value)) {
         error.value = 'Invalid card number'
@@ -106,7 +104,11 @@ function submitPayment() {
         return
     }
 
-    success.value = true
+    // Payment valid, clear cart
+    clearCart()
+    emit('cart-cleared')
+    notification.value = 'Payment successful! 🎉 Your cart has been cleared.'
+    window.location.reload()
 
     setTimeout(() => {
         close()
@@ -119,7 +121,7 @@ function close() {
     expiry.value = ''
     cvv.value = ''
     error.value = ''
-    success.value = false
+    notification.value = ''
     emit('close')
 }
 </script>
