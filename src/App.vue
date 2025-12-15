@@ -1,20 +1,18 @@
 <template>
-  <div class="min-h-screen absolute w-full bg-gradient-to-b from-slate-50 to-slate-100">
+  <div class="min-h-screen relative w-full bg-gradient-to-b from-slate-200 to-slate-300">
     <!-- Header -->
-    <header class="top-0  z-50 mt-6 px-6 backdrop-blur-md ">
+    <header class="top-0 z-50  relative flex justify-center px-6 backdrop-blur-md ">
       <div
-        class="max-w-7xl mx-auto rounded-full px-4 sm:px-6 lg:px-8 vbg-white/80 border-b border-slate-200/50 shadow-sm">
+        class="max-w-7xl mx-auto absolute rounded-full px-4 w-full  mt-6 sm:px-6 lg:px-8 bg-white border-b border-slate-200/50 shadow-2xl">
         <div class="flex justify-between items-center py-4">
           <!-- Logo -->
           <RouterLink to="/" class="flex items-center space-x-2 group">
             <div class="relative">
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300">
-              </div>
+
               <img src="/favicon.ico" alt="Logo" class="relative w-10 h-10 rounded-lg" />
             </div>
             <span
-              class="hidden sm:inline text-2xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">ShopHub</span>
+              class="hidden sm:inline text-2xl font-bold bg-gradient-to-r from-indigo-600 to-pink-600 bg-clip-text text-transparent">42 Street</span>
           </RouterLink>
 
           <!-- Navigation -->

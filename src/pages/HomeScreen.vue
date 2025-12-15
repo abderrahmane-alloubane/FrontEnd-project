@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-16">
+  <div class="space-y-16 mt-24">
     <!-- Hero Section -->
     <section
       class="relative overflow-hidden rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-600 p-12 sm:p-16 text-white">

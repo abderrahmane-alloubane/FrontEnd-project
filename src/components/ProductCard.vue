@@ -1,35 +1,24 @@
 <template>
-  <div class="card-product">
+  <div class="card-product flex flex-col justify-between h-156 z-50 bg-white/30 p-6 rounded-2xl">
     <!-- Product Image Container -->
-    <div class="card-product-image">
-      <img :src="product.image" :alt="product.title" />
+    <div class="card-product-image flex items-center justify-center">
+      <img :src="product.image" :alt="product.title" class="h-56"/>
 
       <!-- Badge -->
-      <div
-        class="absolute top-4 right-4 bg-linear-to-tr from-indigo-600 to-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-        SALE
-      </div>
 
       <!-- Quick View Badge -->
-      <div
-        class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <RouterLink :to="'/product/' + product.id" class="btn-primary-custom">
-            Quick View
-          </RouterLink>
-        </div>
+
       </div>
-    </div>
 
     <!-- Product Info -->
-    <div class="p-6">
+    <div class="flex flex-col gap-4">
       <!-- Title -->
-      <h3 class="font-bold text-lg text-slate-900 mb-2 line-clamp-2 group-hover:text-indigo-600 transition-colors">
+      <h3 class="font-bold text-lg text-slate-900 line-clamp-2 group-hover:text-indigo-600 transition-colors">
         {{ product.title }}
       </h3>
 
       <!-- Rating -->
-      <div class="flex items-center mb-3">
+      <div class="flex items-center">
         <div class="flex text-yellow-400">
           <span v-for="i in 5" :key="i" class="text-sm">★</span>
         </div>
@@ -37,12 +26,12 @@
       </div>
 
       <!-- Description Preview -->
-      <p class="text-sm text-slate-600 mb-4 line-clamp-2">
+      <p class="text-sm text-slate-600 line-clamp-2">
         {{ product.description || 'Premium quality product with excellent features' }}
       </p>
 
       <!-- Price Section -->
-      <div class="flex items-baseline space-x-2 mb-4">
+      <div class="flex items-baseline space-x-2">
         <span class="text-2xl font-bold text-indigo-600">{{ product.price }} €</span>
         <span class="text-sm text-slate-400 line-through">{{ (product.price * 1.2).toFixed(2) }} €</span>
         <span class="text-xs font-bold text-red-500">-20%</span>
@@ -65,7 +54,7 @@
       </div>
 
       <!-- Stock Info -->
-      <div class="mt-4 text-xs text-slate-500 flex items-center space-x-1">
+      <div class="text-xs text-slate-500 flex items-center space-x-1">
         <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd"
             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -73,8 +62,8 @@
         </svg>
         <span>In Stock - Free Shipping</span>
       </div>
+      </div>
     </div>
-  </div>
 </template>
 
 <script setup>
