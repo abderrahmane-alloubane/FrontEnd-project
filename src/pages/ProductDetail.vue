@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-24">
     <div class="flex g-3 max-sm:flex-col justify-between gap-10">
-      <div class="col-md-6 flex aspect-square h-60">
-        <img :src="product.image" class="img-fluid max-h-56" alt="Product Image" />
+      <div class="col-md-6 flex aspect-square h-128">
+        <img :src="product.image" class="img-fluid max-h-128" alt="Product Image" />
       </div>
 
       <div class="col-md-6 flex flex-col gap-4">

@@ -1,20 +1,25 @@
 <template>
-  <div class="space-y-16 mt-20">
+  <div class="space-y-16 mt-24">
     <!-- Hero Section -->
     <section
-      class="relative overflow-hidden rounded-2xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-600 p-12 sm:p-16 text-white">
-      <div class="absolute inset-0 opacity-20">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+      class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-orange-700 via-purple-700 to-teal-700 p-12 sm:p-16 text-white shadow-2xl">
+      <div class="absolute inset-0 opacity-25">
         <div
-          class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-3xl animation-delay-2000">
+          class="absolute top-0 right-0 w-96 h-96 bg-pink-600 rounded-full mix-blend-soft-light filter blur-3xl animate-pulse">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-600 rounded-full mix-blend-soft-light filter blur-3xl animation-delay-2000 animate-pulse">
+        </div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-50">
         </div>
       </div>
 
       <div class="relative z-10 max-w-3xl">
-        <h1 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
-          Discover Your <span class="text-yellow-300">Perfect</span> Products
+        <h1 class="text-5xl sm:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
+          Discover Your <span class="text-amber-300 drop-shadow-md">Perfect</span> Products
         </h1>
-        <p class="text-xl text-indigo-100 mb-8 max-w-2xl">
+        <p class="text-xl text-orange-50 mb-8 max-w-2xl drop-shadow-md">
           Shop the latest trends with exclusive deals, free shipping, and premium quality. Your satisfaction is our
           priority.
         </p>
@@ -34,11 +39,13 @@
     <!-- Section Title -->
     <div class="space-y-4" id="products">
       <div class="flex items-center space-x-4">
-      <div class="flex-1 h-2 bg-gradient-to-r from-indigo-600 to-transparent"></div>
-      <h2 class="section-title text-center flex-1 text-3xl font-bold">🌟 Trending Products</h2>
-      <div class="flex-1 h-2 bg-gradient-to-l from-pink-600 to-transparent"></div>
+        <div class="flex-1 h-1 bg-gradient-to-r from-primary to-transparent"></div>
+        <h2
+          class="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent text-center flex-1">
+          🌟 Trending Products</h2>
+        <div class="flex-1 h-1 bg-gradient-to-l from-secondary to-transparent"></div>
       </div>
-      <p class="text-center text-slate-600 text-xl">Handpicked collection of bestsellers and customer favorites</p>
+      <p class="text-center text-slate-600 text-lg">Handpicked collection of bestsellers and customer favorites</p>
     </div>
 
     <!-- Products Grid - 4 Columns -->
@@ -56,22 +63,6 @@
       <div v-for="i in 8" :key="i" class="bg-slate-200 rounded-xl h-96 animate-pulse"></div>
     </div>
 
-    <!-- Newsletter Section -->
-    <section class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-12 text-white">
-      <div class="max-w-2xl mx-auto text-center">
-        <h3 class="text-3xl font-bold mb-4">Get Exclusive Offers</h3>
-        <p class="text-slate-300 mb-6">Subscribe to our newsletter and get 20% off your first purchase</p>
-        <form @submit.prevent="subscribe" class="flex gap-3">
-            <input type="email" placeholder="Enter your email"
-              class="flex-1 px-4 py-3 border border-indigo-500 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
-              required />
-          <button type="submit"
-            class="bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
-            Subscribe
-          </button>
-        </form>
-      </div>
-    </section>
   </div>
 </template>
 

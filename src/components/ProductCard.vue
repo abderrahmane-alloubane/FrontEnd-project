@@ -3,6 +3,11 @@
     <!-- Product Image Container -->
     <div class="card-product-image flex items-center justify-center">
       <img :src="product.image" :alt="product.title" class="h-42" />
+
+      <!-- Badge -->
+
+      <!-- Quick View Badge -->
+
     </div>
 
     <!-- Product Info -->
@@ -34,7 +39,7 @@
 
       <!-- Action Buttons -->
       <div class="flex gap-3">
-        <button @click="addToCart"
+        <button
           class="flex-1 bg-orange-600 hover:text-orange-600 hover:bg-white text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path
@@ -62,9 +67,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { defineProps } from 'vue'
 import { RouterLink } from 'vue-router'
-import { setCartProduct } from '@/services/cart'
 
 const props = defineProps({
   product: {
@@ -72,13 +76,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-
-function addToCart() {
-  setCartProduct(props.product, 1)
-  setTimeout(() => {
-  }, 3000)
-}
 </script>
 
 <style scoped>
