@@ -1,89 +1,103 @@
 <template>
-  <div class="card mb-2 shadow-sm w-100" style="max-width: 900px; margin: 0 auto">
-    <div class="row align-items-center" style="min-height: 120px">
-      <div class="col-auto fl p-3">
-        <img
-          :src="product.image"
-          alt="product image"
-          class="img-fluid rounded"
-          style="width: 100px; height: 100px; object-fit: contain"
-        />
+  <div
+    class="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-slate-100">
+    <div class="flex flex-col sm:flex-row items-center p-6 gap-6">
+      <!-- Product Image -->
+      <div class="flex-shrink-0">
+        <div
+          class="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+          <img :src="product.image" :alt="product.title" class="w-full h-full object-contain p-2" />
+        </div>
       </div>
-      <div class="col px-3">
-        <div class="justify-content-between align-items-center h-100">
-          <div class="text-truncate" style="max-width: 500px">
-            <h5 class="card-title mb-1">{{ product.title }}</h5>
-            <p class="card-text fw-bold text-success mb-0">{{ product.price }} €</p>
-          </div>
-          
-        
-          
-          <div class="d-flex justify-content-end w-100">
-            
-            <button class="btn btn-outline-secondary" @click="decreaseQty">-</button>
-            <input disabled="disabled" type="number" class="form-control text-center mx-2" v-model="quantity" min="1" style="width: 70px;" />
-            <button class="btn btn-outline-secondary" @click="increaseQty">+</button>
 
-            <button class="btn btn-danger btn-sm mx-2" @click="removeitem">
-              Supprimer
+      <!-- Product Info -->
+      <div class="flex-1 min-w-0">
+        <h4 class="text-lg font-bold text-slate-900 truncate mb-2">{{ product.title }}</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-2xl font-bold text-indigo-600">{{ product.price }} €</span>
+          <span class="text-sm text-slate-500">Per item</span>
+        </div>
+        <p class="text-sm text-slate-600">Subtotal: <span class="font-bold text-indigo-600">{{ (product.price *
+          quantity).toFixed(2) }} €</span></p>
+      </div>
+
+      <!-- Quantity Controls -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center border-2 border-slate-200 rounded-lg bg-slate-50">
+          <button @click="decreaseQty"
+            class="w-10 h-10 flex items-center justify-center text-indigo-600 hover:bg-indigo-50 transition-colors font-bold text-lg">
+            −
           </button>
-          
+          <input disabled="disabled" type="number" v-model.number="quantity"
+            class="w-12 text-center border-0 bg-transparent font-bold text-slate-900 focus:outline-none" />
+          <button @click="increaseQty"
+            class="w-10 h-10 flex items-center justify-center text-indigo-600 hover:bg-indigo-50 transition-colors font-bold text-lg">
+            +
+          </button>
         </div>
-        </div>
+
+        <!-- Remove Button -->
+        <button @click="removeitem"
+          class="ml-4 p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors hover:text-red-700"
+          title="Remove from cart">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
-
-
 <script setup>
-import { removeProduct, setCartProduct } from '@/services/cart';
-import { ref } from 'vue';
+import { removeProduct, setCartProduct } from '@/services/cart'
+import { ref } from 'vue'
 
 const props = defineProps({
   product: {
     type: Object,
     required: true
   }
-});
+})
 
-const emit = defineEmits(['quantity-changed', 'product-removed']);
+const emit = defineEmits(['quantity-changed', 'product-removed'])
 
-const quantity = ref(props.product?.qte ?? 1);
+const quantity = ref(props.product?.qte ?? 1)
 
 function removeitem() {
-  removeProduct(props.product);
-  emit('product-removed');
+  removeProduct(props.product)
+  emit('product-removed')
 }
 
 function increaseQty() {
-  quantity.value++;
-  setCartProduct(props.product, quantity.value);
-  emit('quantity-changed');
+  quantity.value++
+  setCartProduct(props.product, quantity.value)
+  emit('quantity-changed')
 }
 
 function decreaseQty() {
   if (quantity.value > 1) {
-    quantity.value--;
-    setCartProduct(props.product, quantity.value);
-    emit('quantity-changed');
+    quantity.value--
+    setCartProduct(props.product, quantity.value)
+    emit('quantity-changed')
   } else {
     if (confirm('Remove item?')) {
-      removeProduct(props.product);
-      emit('product-removed');
+      removeProduct(props.product)
+      emit('product-removed')
     }
   }
 }
 </script>
-<style>
+
+<style scoped>
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
