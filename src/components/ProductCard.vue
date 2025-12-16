@@ -36,9 +36,12 @@
       <div class="flex gap-3">
         <button @click="addToCart"
           class="flex-1 bg-orange-600 hover:text-orange-600 hover:bg-white text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042L6.582 17h12.307a1 1 0 100-2H7.628L5.582 5H3a1 1 0 000 2h2.126l.305-1.222A.997.997 0 0012 2H4a1 1 0 000 2h8z" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-square-plus-icon lucide-square-plus">
+            <rect width="18" height="18" x="3" y="3" rx="2" />
+            <path d="M8 12h8" />
+            <path d="M12 8v8" />
           </svg>
           <span>Add</span>
         </button>
