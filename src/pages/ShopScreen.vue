@@ -1,13 +1,5 @@
 <template>
-  <div class="space-y-8">
-    <!-- Page Title -->
-    <div class="space-y-4">
-      <h1
-        class="text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-        🛍️ All Products</h1>
-      <p class="text-slate-600 text-lg">Browse through our complete collection of premium items</p>
-    </div>
-
+  <div class="space-y-8 mt-20">
     <!-- Filter Section -->
     <div class="bg-white rounded-xl shadow-md p-6 top-20 z-40 backdrop-blur-sm">
       <label class="block text-sm font-bold text-slate-700 mb-2">Filter by Category</label>

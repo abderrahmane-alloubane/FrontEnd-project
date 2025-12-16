@@ -39,13 +39,11 @@
     <!-- Section Title -->
     <div class="space-y-4" id="products">
       <div class="flex items-center space-x-4">
-        <div class="flex-1 h-1 bg-gradient-to-r from-primary to-transparent"></div>
-        <h2
-          class="text-4xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent text-center flex-1">
-          🌟 Trending Products</h2>
-        <div class="flex-1 h-1 bg-gradient-to-l from-secondary to-transparent"></div>
+      <div class="flex-1 h-2 bg-gradient-to-r from-indigo-600 to-transparent"></div>
+      <h2 class="section-title text-center flex-1 text-3xl font-bold">Trending Products</h2>
+      <div class="flex-1 h-2 bg-gradient-to-l from-pink-600 to-transparent"></div>
       </div>
-      <p class="text-center text-slate-600 text-lg">Handpicked collection of bestsellers and customer favorites</p>
+      <p class="text-center text-slate-600 text-xl">Handpicked collection of bestsellers and customer favorites</p>
     </div>
 
     <!-- Products Grid - 4 Columns -->
