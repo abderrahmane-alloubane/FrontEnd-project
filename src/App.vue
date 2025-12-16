@@ -41,8 +41,6 @@
                 </svg>
                 <span>Panier</span>
               </div>
-              <span
-                class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center group-hover:bg-red-600 transition-colors">0</span>
             </RouterLink>
           </nav>
         </div>
